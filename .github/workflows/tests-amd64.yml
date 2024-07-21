@@ -3,10 +3,10 @@ name: Run GoTest
 on:
   pull_request:
     branches:
-      - main
+      - tkmain
   push:
     branches:
-      - main
+      - tkmain
 
 concurrency:
   group: test-amd64-${{ github.head_ref || github.run_id }}
