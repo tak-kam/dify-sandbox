@@ -17,6 +17,10 @@ on:
         required: true
       DOCKERHUB_TOKEN:
         required: true
+  push:
+    branches:
+      - wfd
+  workflow_dispatch: {}
 
 jobs:
   build:
