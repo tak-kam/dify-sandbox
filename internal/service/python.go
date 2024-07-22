@@ -3,12 +3,12 @@ package service
 import (
 	"time"
 
-	"fmt"
-
 	"github.com/langgenius/dify-sandbox/internal/core/runner/python"
 	runner_types "github.com/langgenius/dify-sandbox/internal/core/runner/types"
 	"github.com/langgenius/dify-sandbox/internal/static"
 	"github.com/langgenius/dify-sandbox/internal/types"
+
+	"github.com/langgenius/dify-sandbox/internal/utils/log"
 )
 
 type RunCodeResponse struct {
@@ -17,9 +17,10 @@ type RunCodeResponse struct {
 }
 
 func RunPython3Code(code string, preload string, options *runner_types.RunnerOptions) *types.DifySandboxResponse {
-	fmt.Printf("code: %s\n", code)
-	fmt.Printf("preload: %s\n", preload)
-	fmt.Printf("options: %v\n", options)
+	log.Info("code: %s\n", code)
+	log.Info("preload: %s\n", preload)
+	log.Info("options: %v\n", options)
+
 	if err := checkOptions(options); err != nil {
 		return types.ErrorResponse(-400, err.Error())
 	}
